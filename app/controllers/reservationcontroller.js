@@ -73,7 +73,10 @@ exports.AddReservation = (req, res) => {
 
         fs.appendFileSync(pathing, JSON.stringify(reservationPost)+"\n", "UTF-8", {flags: "a+"});
 
-        res.render("Home");
+        res.writeHead(301,
+          {Location: 'http://paypal.com/'}
+          );
+        res.end();
     } 
   });
  
